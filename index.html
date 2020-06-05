@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email</title>
+    <style type="text/css">
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        html {
+            font-size:62.5%; /*1rem = 10px*/
+        }
+        body {
+            color: #3a3a3a;
+            font-size: 1.2rem;
+            background-color: #ececec;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .header {
+            padding: 1rem;
+            text-align: center;
+        }
+        .mssg-box-container, .heading {
+            width: 100%;
+            padding:2rem;
+        }
+        .section {
+            margin: 1rem 1rem;
+            background-color: #ffffff;
+            border-radius: 5px;
+        }
+        .mssg-box {
+            width: 90%;
+            margin: 0 auto;
+            border: 2px solid #d1d0d0;
+            padding: 2rem 2rem;
+            border-radius: 5px 5px 5px 5px;
+        }
+        .content {
+            margin: 10px;
+        }
+        .greet {
+            font-size: 1.4rem;
+        }
+        .booking-detail {
+            padding: 1rem;
+            width: 90%;
+            margin: 0 auto;
+            color: #585858;
+        } 
+        .booking {
+            margin: 1rem 2rem;
+        }
+        .book-contain {
+            display: inline-block;
+            margin-right: 3rem;
+        }
+        .noMargin {
+            margin: 0px;
+        }
+        .booking-middle {
+            width: 90%;
+            margin: 0 auto;
+        }
+        .table-head {
+            width: 95%; 
+            margin: 0 auto;
+            font-size: 1.6rem;
+            color: #000000
+        }
+        .table-sec {
+            width: 95%;
+            margin: 0 auto;
+            border-collapse: collapse;
+        }
+        .table-sec thead tr {
+            background-color: #e0e0e0;
+            font-weight: bold;
+            text-align: left;
+        }
+        .table-sec th,
+        .table-sec td {
+            padding: 0.8rem 1.1rem
+        }
+        .table-sec tbody tr,
+        .table-sec thead tr  {
+            border: 1px solid #858585;
+        }
+        .divider-cover {
+            margin: 1rem 0;
+        }
+        .divider {
+            width: 97%;
+            margin: 0 auto;
+            height: 1px;
+            background-color: #cccccc;
+        }
+        .quote {
+            width: 95%;
+            margin: 0 auto;
+            text-align: center;
+            padding: 1.5rem;
+        }
+        .button {
+            border: 1px solid dodgerblue;
+            background-color: dodgerblue;
+            text-decoration: none;
+            color: #ffffff;
+            padding: 1rem 1.5rem;
+            font-size: 1.4rem;
+            border-radius: 0.5rem;
+
+        }
+        .top-sec {
+            padding: 2rem;
+            background-color: #ffffff;
+        }
+        .logo {
+            text-align: center;
+            display: inline-block;
+            float: left;
+        }
+        .travel-info {
+            width: 95%;
+            margin: 0 auto;
+        }
+        .travel-info-cont{
+            padding: 1rem;
+        }
+        .card-container {
+            width: 95%;
+            margin: 0 auto;
+            background-color: #ececec;
+            border-radius: 5px;
+        }
+        .flight-no{
+            padding: 2rem 4rem;
+            text-align: center;
+        }
+        .card-departure {
+            padding: 2rem;
+        }
+        .card-one {
+            text-align: center;
+            display: inline-block;
+            justify-content: center;
+            align-items: center;
+            width: 50%;
+            float: left;
+        }
+        .card-two {
+            width:50%;
+            display: inline-block;
+            justify-content: center;
+            text-align: center;
+            display: inline-block;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <div class="top-sec">
+        <div class="logo">
+            Logo<img src="" alt="">
+        </div>
+        <div style="margin-left: 10rem; display: inline-block; float: left;">
+            <p style="display: inline-block; width: 20rem;">
+                For any changes with your flight, date, route or names call us at 1-800-525-0400.
+            </p>
+        </div>
+        <div>
+            <div style="margin-left: 10rem; display: inline-block;">
+                <p style="padding: 5px">View on Website</p>
+                <p style="padding: 5px">print Itenerary</p>
+            </div>
+        </div>
+    </div>
+    <div class="header">
+        <div class="header-content">{{#each flightDetails}} {{/each}}</div>
+    </div>
+    <div class="section">
+        <div class="mssg-box-container">
+            <div class="mssg-box">
+                <p class="content">Hi {{name}},</p>
+                <p class="content greet">Congratulations! Your flight booking is <span>confirmed.</span></p>
+                <p class="content greet" style="color: red; font-size: 14px;">NOTE: THIS IS YOUR BOOKING CONFIRMATION. YOU WILL GET YOUR E-TICKET WITHIN 4 HOURS.</p>
+            </div>
+        </div>
+        <div class="booking-detail">
+            <div class="content book-ref-num">Booking Reference Number - <span style="color: dodgerblue;">{{bookingId}}</span></div>
+            <div class="content book-status">Booking Status - <span style="color: #000000;">Confirmed</span></div>
+            <div class="content book-mssg" style="color: #000000;">Thank you for booking your travel itinerary with Mycheapfare.</div>
+        </div>
+    </div>
+    <div class="booking">
+        <div class="booking-middle">
+            <div class="book-contain">
+                <p>Booking Date</p>
+                <p>{{bookingDate}}</p>
+            </div>
+            <div class="book-contain">
+                <p>Booking No.</p>
+                <p>{{bookingId}}</p>
+            </div>
+            <div class="book-contain noMargin">
+                <p>Payment</p>
+                <p>by {{paymentMode}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <div class="heading" style="padding-bottom:1rem;">
+            <p class="table-head">Flight Itenerary Details</p>
+        </div>
+        <!-- <div class="heading" style="padding-top:1rem;">
+            <table class="table-sec">
+                <thead>
+                    <tr>
+                        <th>Flight</th>
+                        <th>Depart</th>
+                        <th>Arrive</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <p>{{carrierCode}}</p>
+                            <p>{{carrierCode}}- {{number}}</p>
+                        </td>
+                        <td>
+                            <p>{{depart}}</p>
+                            <p>{{departDate}}</p>
+                            <p>Travel Time: {{travelTime}}</p>
+                        </td>
+                        <td>
+                            <p>{{arrival}}</p>
+                            <p>16 July 19, Sat 19:38 PM</p>
+                        </td>
+                    </tr>
+                </tbody>
+                
+            </table>
+        </div> -->
+
+        <div class="card-container" style="margin: 0 auto;">
+            <div class="flight-no">
+                <p style="display: inline-block; width: 50%; float: left; font-size: 1.4rem; "><b>Flight No.</b></p>
+                <p style="display: inline-block; width: 50%; font-size: 1.4rem;"><b>Cabin : xyx</b></p>
+            </div>
+            <div class="card-departure">
+                <div class="card-one">
+                    <p style="padding: 0.5rem;">Airline</p>
+                    <img src="" alt="image-here" style="width: 1rem; height: 1rem;">
+                </div>
+                <div class="card-two">
+                    <p style="padding: 0.5rem;">Departure City</p>
+                    <p style="padding: 0.5rem;">Departure Date</p>
+                    <p style="padding: 0.5rem;">Departure Time</p>
+                </div>
+                <div class="card-three">
+
+                </div>
+            </div>
+            <div class="card-departure">
+                <div class="card-one">
+                    <p style="padding: 0.5rem;">Airline</p>
+                    <img src="" alt="image-here" style="width: 1rem; height: 1rem;">
+                </div>
+                <div class="card-two">
+                    <p style="padding: 0.5rem;">Arrival City</p>
+                    <p style="padding: 0.5rem;">Arrival Date</p>
+                    <p style="padding: 0.5rem;">Arrival Time</p>
+                </div>
+                <div class="card-three">
+
+                </div>
+            </div>
+        </div>
+        <div class="travel-info">
+            <div class="travel-info-cont">
+                <p style="font-size: 1.6rem; font-weight: bold; color: dodgerblue; margin: 1rem;">Traveller Detail</p>
+                <p style="font-size: 1.2rem; font-weight: bold; color: red; margin: 1rem;">Please verify travelere names below. Rules require traveler full names match exactly with their Passport or Government issued photoID. If you need to make a name change, please call 1-888-481-8857</p>
+            </div>
+            <table style="width: 95%; margin: 0 auto;">
+                <thead>
+                    <tr style="text-align: center;">
+                        <th style="padding: 1rem;">Title</th>
+                        <th style="padding: 1rem;">Traveler Name</th>
+                        <th style="padding: 1rem;">Pax type</th>
+                        <th style="padding: 1rem;">D.O.B</th>
+                        <th style="padding: 1rem;">Gender</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="text-align: center;">
+                        <td style="padding: 1rem;">Pending</td>
+                        <td style="padding: 1rem;">Aman Kumar</td>
+                        <td style="padding: 1rem;">**</td>
+                        <td style="padding: 1rem;">Sep-25-1996</td>
+                        <td style="padding: 1rem;">Male</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div style="width: 95%; margin: 0 auto;">
+            <p style="padding: 1rem; margin: 1rem; font-size: 1.6rem; font-weight: bold; color: dodgerblue;">
+                Billing Details
+                <span style="font-size: 1rem;"> (USD) </span>
+            </p>
+            <div class="divider-cover" style="margin: 0;">
+                <div class="divider"></div>
+            </div>
+            <div>
+                <ul style="list-style: none; padding: 1rem; margin: 1rem; font-size: 1.4rem; display: inline-block; float: left; width: 40%;">
+                    <li style="padding: 0.5rem 1rem; font-weight: bold;">Method</li>
+                    <li style="padding: 0.5rem 1rem; font-weight: bold;">Phone</li>
+                    <li style="padding: 0.5rem 1rem; font-weight: bold;">Email</li>
+                    <li style="padding: 0.5rem 1rem; font-weight: bold;">Billing Address</li>
+                </ul>
+                <ul style="list-style: none; padding: 1rem; margin: 1rem; font-size: 1.4rem; display: inline-block;">
+                    <li style="padding: 0.5rem 1rem;">Payment Method</li>
+                    <li style="padding: 0.5rem 1rem;">Customer Phone</li>
+                    <li style="padding: 0.5rem 1rem;">Customer Email</li>
+                    <li style="padding: 0.5rem 1rem;">Customer address</li>
+                </ul>
+            </div>
+            <div class="divider-cover" style="margin: 0;">
+                <div class="divider"></div>
+            </div>
+            <p style="padding: 1rem; margin: 0.5rem; font-size: 1.4rem; font-weight: bold; color: dodgerblue;">
+                Flight Price Detail
+            </p>
+            <div>
+                <ul style="list-style: none; padding: 1rem; margin: 0.5rem; font-size: 1.4rem; display: inline-block; float: left; width: 50%;">
+                    <li style="padding: 0.5rem 1rem; font-weight: bold;">Base Price (Per Person)</li>
+                    <li style="padding: 0.5rem 1rem; font-weight: bold;">Taxes & Fees (Per Person)</li>
+                    <li style="padding: 0.5rem 1rem; font-weight: bold;">Mark Up (Per Person)</li>
+                    <li style="padding: 0.5rem 1rem; font-weight: bold;"></li>
+                    <li style="padding: 0.5rem 1rem; font-weight: bold; font-size: 1.8rem; color: dodgerblue;">Total</li>
+                </ul>
+                <ul style="list-style: none; padding: 1rem; margin: 0.5rem; font-size: 1.4rem; text-align: center; display: inline-block;width: 45%;">
+                    <li style="padding: 0.5rem 1rem;">$247.00</li>
+                    <li style="padding: 0.5rem 1rem;">$21.00</li>
+                    <li style="padding: 0.5rem 1rem;">$20.00</li>
+                    <li style="padding: 0.5rem 1rem;"></li>
+                    <li style="padding: 0.5rem 1rem; font-size: 1.8rem; color: dodgerblue;">$248.00</li>
+                </ul>
+            </div>
+        </div>
+        <div class="divider-cover">
+            <div class="divider"></div>
+        </div>
+        <div class="section">
+            <div class="quote">
+                <p>Any questions? Get in touch with our 24x7 Customer Care team</p>
+            </div>
+            <div class="quote">
+                <a href="#" class="button">I Accept this Booking</a>
+            </div>
+            
+        </div>
+        
+    </div>
+    
+    
+</body>
+</html>
